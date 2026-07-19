@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { login, type User } from '../api/auth'
+import { useToast } from '../components/toast-context'
 import './LoginPage.css'
 
 interface LoginPageProps {
@@ -9,18 +10,19 @@ interface LoginPageProps {
 function LoginPage({ onLoggedIn }: LoginPageProps) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
+  const toast = useToast()
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    setError(null)
     setSubmitting(true)
     try {
       const user = await login(username.trim(), password)
+      toast.success(`Welcome back, ${user.first_name || user.username}!`)
       onLoggedIn(user)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong.')
+      toast.error(err instanceof Error ? err.message : 'Something went wrong.')
+      setPassword('')
     } finally {
       setSubmitting(false)
     }
@@ -31,12 +33,6 @@ function LoginPage({ onLoggedIn }: LoginPageProps) {
       <form className="login-card" onSubmit={handleSubmit}>
         <h1 className="login-title">MediPortal</h1>
         <p className="login-subtitle">Sign in to your account</p>
-
-        {error && (
-          <div className="login-error" role="alert">
-            {error}
-          </div>
-        )}
 
         <label className="login-field">
           <span>Username</span>
@@ -66,6 +62,10 @@ function LoginPage({ onLoggedIn }: LoginPageProps) {
         <button type="submit" className="login-button" disabled={submitting}>
           {submitting ? 'Signing in…' : 'Sign in'}
         </button>
+
+        <p className="login-hint">
+          Accounts are issued by your administrator in the Django admin.
+        </p>
       </form>
     </div>
   )

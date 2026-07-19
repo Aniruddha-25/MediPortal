@@ -39,11 +39,17 @@ function extractError(body: unknown, fallback: string): string {
 }
 
 export async function login(username: string, password: string): Promise<User> {
-  const res = await fetch(`${API_URL}/api/auth/login/`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password }),
-  })
+  let res: Response
+  try {
+    res = await fetch(`${API_URL}/api/auth/login/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    })
+  } catch {
+    // fetch only rejects on network-level failures (server down, CORS, offline).
+    throw new Error('Cannot reach the server. Is the Django backend running?')
+  }
 
   const body = await res.json().catch(() => null)
   if (!res.ok) {
@@ -58,9 +64,14 @@ export async function fetchMe(): Promise<User> {
   const token = getToken()
   if (!token) throw new Error('Not authenticated')
 
-  const res = await fetch(`${API_URL}/api/auth/me/`, {
-    headers: { Authorization: `Token ${token}` },
-  })
+  let res: Response
+  try {
+    res = await fetch(`${API_URL}/api/auth/me/`, {
+      headers: { Authorization: `Token ${token}` },
+    })
+  } catch {
+    throw new Error('Cannot reach the server. Is the Django backend running?')
+  }
   if (!res.ok) {
     clearToken()
     throw new Error('Session expired. Please log in again.')

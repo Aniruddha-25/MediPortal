@@ -1,10 +1,13 @@
 .login-page {
-  min-height: 100vh;
+  flex: 1;
+  width: 100%;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #0f766e 0%, #0e7490 100%);
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #0ea5e9 100%);
 }
 
 .login-card {
@@ -24,7 +27,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   text-align: center;
-  color: #0f766e;
+  color: #1d4ed8;
 }
 
 .login-subtitle {
@@ -55,8 +58,8 @@
 
 .login-field input:focus {
   outline: none;
-  border-color: #0d9488;
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   background: #ffffff;
 }
 
@@ -66,7 +69,7 @@
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background: #0d9488;
+  background: #2563eb;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -74,7 +77,7 @@
 }
 
 .login-button:hover:not(:disabled) {
-  background: #0f766e;
+  background: #1d4ed8;
 }
 
 .login-button:disabled {
@@ -82,11 +85,10 @@
   cursor: not-allowed;
 }
 
-.login-error {
-  padding: 0.7rem 0.85rem;
-  font-size: 0.85rem;
-  color: #b91c1c;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  border-radius: 8px;
+.login-hint {
+  margin: 0.25rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #94a3b8;
 }
