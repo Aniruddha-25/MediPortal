@@ -58,10 +58,6 @@ python3 manage.py createsuperuser
 
 ## 3. Frontend Setup
 
-* Open a new terminal.
-
-* Navigate to the frontend directory:
-
 ```bash
 cd frontend
 ```
