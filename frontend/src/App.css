@@ -1,0 +1,42 @@
+.app-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-shell h1 {
+  margin: 0;
+  color: #0f766e;
+}
+
+.logout-button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f766e;
+  background: transparent;
+  border: 2px solid #0d9488;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.logout-button:hover {
+  background: #0d9488;
+  color: #ffffff;
+}
