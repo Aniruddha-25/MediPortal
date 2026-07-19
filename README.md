@@ -11,8 +11,7 @@ A full-stack Hospital Management System built with **Django** and **React**.
 * Clone the repository:
 
 ```bash
-git clone https://github.com/Aniruddha-25/MediPortal.git
-cd MediPortal
+git clone https://github.com/Aniruddha-25/MediPortal.git && cd MediPortal
 ```
 
 ---
