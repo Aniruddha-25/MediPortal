@@ -59,13 +59,7 @@ python3 manage.py createsuperuser
 ## 3. Frontend Setup
 
 ```bash
-cd frontend
-```
-
-* Install the required dependencies:
-
-```bash
-npm install
+cd frontend && npm install
 ```
 
 ---
