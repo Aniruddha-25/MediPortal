@@ -77,6 +77,3 @@ cd backend && source venv/bin/activate && python3 manage.py runserver
 ```bash
 cd frontend && nvm use 24 && npm run dev
 ```
-
-
-
