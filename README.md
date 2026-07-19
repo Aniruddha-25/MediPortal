@@ -18,16 +18,10 @@ git clone https://github.com/Aniruddha-25/MediPortal.git && cd MediPortal
 
 ## 2. Backend Setup
 
-* Navigate to the backend directory:
-
-```bash
-cd backend
-```
-
 * Create a virtual environment:
 
 ```bash
-python3 -m venv venv
+cd backend && python3 -m venv venv
 ```
 
 * Activate the virtual environment:
@@ -36,7 +30,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-* Install the required dependencies:
+* Activate the Environment and Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
