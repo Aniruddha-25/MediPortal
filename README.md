@@ -53,7 +53,7 @@ python3 manage.py createsuperuser
 ## 3. Frontend Setup
 
 ```bash
-cd frontend && npm install
+cd frontend && nvm use 24 && npm install
 ```
 
 ---
